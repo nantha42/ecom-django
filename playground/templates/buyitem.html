@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head content goes here -->
+</head>
+<body>
+    <h1>Buy Item</h1>
+    <p>Item: {{ item.name }} - Price: {{ item.price }}</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Buy</button>
+    </form>
+</body>
+</html>
+

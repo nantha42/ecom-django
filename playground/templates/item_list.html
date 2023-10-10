@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item List</title>
+</head>
+<body>
+    <h1>Item List</h1>
+    <ul>
+        {% for item in items %}
+            <li>
+                <strong>{{ item.name }}</strong> - Price: {{ item.price }} Owned by: {{item.owner}}
+                <form action="{% url 'buyitem' item.name %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Buy</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

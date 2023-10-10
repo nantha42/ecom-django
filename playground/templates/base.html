@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your App Name</title>
+    <!-- Add your CSS and JavaScript links here -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <!-- Add navigation links as needed -->
+            </ul>
+        </nav>
+        <div id="user-info">
+            {% if user.is_authenticated %}
+                <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+            {% else %}
+                <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'signup' %}">Sign Up</a></p>
+            {% endif %}
+        </div>
+    </header>
+    
+    <main>
+        {% block content %}
+        <!-- Content from child templates will be placed here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+</body>
+</html>
